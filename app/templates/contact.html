@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    
+    body{
+        background-repeat: no-repeat;
+        background-position-x:left;
+        background-position-y: center;
+        background-size: contain;
+        background-color: rgb(61, 97, 163);
+    }
+    textarea::placeholder,textarea::-webkit-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: rgb(167, 211, 238) !important;
+        opacity: 1; /* Firefox */
+    }
+    
+    
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        
+        <div class="equal col-lg-8 col-sm-12 mx-auto my-5">
+            <div class="card shadow-lg">
+                <div class="card-header">
+                    <h4 class="card-title">Feel free to contact us</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+                          <label for="name">Name</label>
+                          <input type="text"
+                            class="form-control" name="name" id="name" aria-describedby="nameHelp" placeholder="enter ur name">
+                          <small id="nameHelp" class="form-text text-muted">enter a valid and readable name</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input type="email"
+                            class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="enter your email">
+                          <small id="emailHelp" class="form-text text-muted">enter a valid email, where we will send response</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="message">Message</label>
+                          <textarea class="form-control" name="message" id="message" rows="8"></textarea>
+                        </div>  
+                        <button class="btn btn-primary btn-sm btn-block" >Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+            {% include "notify.html" %}
+        </div>
+           
+    </div>
+</div>
+
+{% endblock %}

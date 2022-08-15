@@ -1,0 +1,34 @@
+Job Description :
+About Us: we are a company
+We are looking for a competent and enthusiastic Software Developer (Hard core Developer) with Leader Qualities to join our Technology team based in Bangalore, India. This vital role ensures Cunesoft India Pvt Ltd (a Phlexglobal Company) can provide a high-quality end product to internal and external users. This position requires strong technical and communication skills as well as both independent and team working, including working closely with all other areas of the Software Development team and the rest of the Technology department.
+We have large number of openings for the (5 - 12 yrs).
+Candidate must have :
+- Commercial experience in web development using the full Microsoft .Net development stack (specifically C#, MVC, .Net Core), SQL, front-end frameworks (jQuery, React, etc).
+- Coding, Entity framework, Linq, Source control system (Any - TFS or GIT), Data structures
+- Skilled in modern development principles (Agile, SOLID, TDD, design patterns, IoC)
+- At least theoretical knowledge - know-SQL database (example Azure Cosmos)
+Good to have :
+- Ideally experience of Azure, MVVM, microservices, message bus, containerisation, serverless.
+- If you possess the above required skill sets, please provide the below information to move forward with the interview process
+Total years of Experience :
+Relevant Experience :
+Rate yourself for the below (1 - 5) & When did used last / exp of the below:
+- C#
+- ASP.Net or ADO.Net
+- MVC
+- SQl
+- Entity framework
+- Linq
+- Jquery
+Do you have experience of Azure, MVVM, microservices, message bus, containerisation, serverless :
+Current CTC : None
+Expected CTC : 10 cr
+Notice Period : 50 days
+Current Location :
+Willing to relocate to Bangalore : YES / NO
+Best time to talk to you :
+Why you are interested in the role :
+Why you would like to leave their current role :
+Their commute time (roughly) - Residence to MG Road Office :
+We would like to Join us Immediately / Within 15 - 30 days / ASAP would be arranged an interview with you. Please confirm your interest in this position.
+Please ignore this, if you have already responded / interviewed.

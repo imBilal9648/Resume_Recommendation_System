@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    
+    
+    .masthead {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        /* if you don't want it to take up the full screen, reduce this number */
+        overflow: hidden;
+        background-size: cover !important;
+        /* background: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 32%, rgba(36,101,255,0.65) 100%), url(qijin-xu.png) no-repeat center center scroll; */
+    }
+    
+    .masthead h1 {
+        font-style: normal;
+        font-weight: bold;
+        color: rgb(66, 64, 206);
+        font-size: 5vmin;
+        letter-spacing: 0.03em;
+        line-height: 1;
+        /* text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8); */
+        
+    }
+    
+    
+    .masthead .button {
+        background: #031d20;
+        transition: background ease .25s;
+        border-radius: 7px;
+        display: inline-block;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        margin: 0;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1.2rem;
+        cursor: pointer;
+        text-align: center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 300px;
+    }
+    .masthead .button:hover {
+        background: #a72545
+    }
+    .masthead .button:focus {
+        outline: 1px solid #fff;
+        outline-offset: -4px;
+    }
+    
+    
+    
+</style>
+{% endblock css %}
+
+{% block body %}
+{% include 'notify.html' %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 h-100">
+            <div class="container-fluid">
+                <div class="row">
+                    
+                    {% if contacts %}
+                    {% for job in contacts %}
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 my-2">
+                        <div class="card mx-1 my-1 shadow-lg">
+                            <div class="card-body">
+                                <h5 class="card-title">from : {{job.name|title}}</h5>
+                               
+                                <span class="badge badge-pill badge-warning px-3"><i class="fas fa-clock text-dark   "></i> {{job.created_on.day}}/{{job.created_on.month}}/{{job.created_on.year}}</span>
+                                <hr>
+                                <p class="card-text">{{job.message}}</p>
+                            </div>
+                            <div class="card-footer">
+                                {% if 'admin' in current_user.username %}
+
+                                <a class="card-button btn btn-danger btn-sm" href="{{url_for('delete_contact',id=job.id)}}"> <i class="fas fa-trash    "></i> delete job posting</a>
+                              
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                        <div class="col">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col mt-3">
+                                        <div class="jumbotron jumbotron-fluid bg-white">
+                                            <div class="container">
+                                                
+                                                <p class="lead">No Contant messages now</p>
+                                                <hr class="my-2">
+                                               
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 h-100 ">
+            <div class="container-fluid mt-3">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card ">
+                            <div class="card-body bg-primary">
+                                {% if 'admin' in current_user.username %}
+                                <h4 class="card-title text-center text-warning">You are an Administrator</h4>
+                                {% else %}
+                                <h4 class="card-title text-center text-white">You are a User</h4>
+                                {% endif %}
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                {% if 'admin' in current_user.username %}
+                                <li class="list-group-item bg-primary">
+                                    <a class="btn btn-primary button w-100" href="/input">
+                                        <i class="fas fa-briefcase    "></i> Add New Jobs 
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li class="list-group-item bg-primary">
+                                    <a class="btn btn-primary button w-100" href="{{url_for('uploadResume')}}">
+                                        <i class="fas fa-file-upload    "></i> Upload your cv 
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                            <img class="card-img-bottom" src="/static/images/imgresume.png" alt="Card image cap">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

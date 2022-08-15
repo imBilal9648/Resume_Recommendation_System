@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    .equal {
+        display: flex;
+        display: -webkit-flex;
+        flex-wrap: wrap;
+    }
+    body{
+        background-image: url('https://www.clipartkey.com/mpngs/m/38-387700_transparent-abstract-png-vector-cool-png.png');
+        background-repeat: no-repeat;
+        
+        background-position-x:left;
+        background-position-y: center;
+        background-size: contain;
+        background-color: rgb(61, 97, 163);
+    }
+    textarea::placeholder,textarea::-webkit-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: rgb(167, 211, 238) !important;
+        opacity: 1; /* Firefox */
+    }
+    
+    
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 ">
+            <embed src="{{upload.path}}" width="100%" class="mx-auto" height="1300px" />
+        </div>
+           
+    </div>
+</div>
+
+{% endblock %}

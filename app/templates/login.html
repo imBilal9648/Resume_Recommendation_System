@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  
+  html,body {
+    height: 100%;
+  }
+
+  body{
+    background-image: url("/static/images/imageAi.jpg");
+    background-position: 61% 40%;
+    background-repeat: no-repeat;
+    background-color: #f7f7f7;
+  }
+  main {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #e4e8ec;
+    box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 10%);
+    border: 1px solid rgb(0 0 0 / 10%);
+    border-radius: 3px;
+  }
+  
+  .form-signin {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    margin: auto;
+  }
+  
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+  
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  form{
+    display: block;
+    margin-top: 0em;
+    width: 100%;
+  }
+</style>
+{% endblock %}
+
+
+
+
+{% block body %}
+{% include "notify.html" %}
+<main class="form-signin my-5">
+  <form method="POST" class="mt-5">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    
+    <div class="form-floating">
+      <label for="floatingInput">username</label>
+      <input type="username" name="username" class="form-control" id="floatingInput" placeholder="username">
+    </div>
+    <div class="form-floating">
+      <label for="floatingPassword">Password</label>
+      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+    </div>
+    
+    
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    
+    <h4 class="h3 mb-3 fw-normal  mt-5">Need an account</h4>
+    
+    <p class="card-text ">
+      It's free to join and easy to use. Continue on to create your account and get to use this awesome project.  
+    </p>
+    <a class="w-100 btn btn-lg btn-primary" href="/register">Create account</a>
+  </form>
+</main>
+{% endblock  %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

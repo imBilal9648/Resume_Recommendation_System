@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    body{
+        background-color: rgb(190, 212, 69);
+       
+        background-image: url('/static/images/right.png');
+        background-position: right bottom;
+        
+        background-repeat: no-repeat;
+    
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="row justify-items-center">
+        {% include "notify.html" %}
+        <div class="col-sm-12 my-5">
+            <div class="card shadow-lg">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page">Resume : {{job.title}}</li>
+                        <li class="breadcrumb-item " aria-current="page">Category : {{job.category}}</li>
+                        <li class="breadcrumb-item " aria-current="page">Date : {{job.created_on.date()}}</li>
+                    </ol>
+                </nav>
+                <h1 class="px-5">{{job.title|title}}</h1>
+                
+                <div class="card-link px-5">keywords 
+                    {% for word in keywords %}
+                    / <span class="badge badge-dark px-3 py-2 lead">{{word}}</span>  
+                    {% endfor %}
+                </div>  
+                <div class="p-5 lead">
+                    {{job.details|replace('\n', '<br>',)|safe}}
+                </div>
+                <div class="card-footer">
+                    {% if 'admin' in current_user.username %}
+                    <a class="card-button btn btn-info btn-sm " href="{{url_for('edit_job',jobid=job.id)}}"> <i class="fas fa-pen-fancy    "></i> edit job posting</a>
+                    <a class="card-button btn btn-danger btn-sm" href="{{url_for('delete_job',jobid=job.id)}}"> <i class="fas fa-trash    "></i> delete job posting</a>
+                    {% else %}
+                    <a class="card-button btn btn-success w-100" href="{{url_for('recommend',jobid=job.id)}}">Check AI recommendation</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

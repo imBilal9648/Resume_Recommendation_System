@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    body{
+        background-image: url('https://wallpaperaccess.com/full/4478486.jpg');
+        background-repeat: no-repeat;
+        height: 100vh;
+        
+        background-size: cover;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-lg-6 mx-auto mt-5">
+            <form class="card" method="post" enctype="multipart/form-data">
+                <div class="card-header">
+                    <p class="lead">please upload CV/Resume file (Docx or PDF only.) </p>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="imageId">Upload your most recent cv here</label>
+                        <input type="file" name="file" class="form-control-file" name="imageId" id="imageId" placeholder="browse the document" aria-describedby="imageHelp">
+                        <small id="imageHelp" class="form-text text-muted">please select document below 10mb</small>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary">submit</button>
+                </div>
+            </form>
+            <br>
+            
+            
+            {% if resumes %}
+            <h4 class="text-white">Your Uploaded CV/Resume</h4>
+            
+            <ul class="list-group">
+                {% for resume in resumes %}
+                <li class="list-group-item mb-1 " aria-current="true">
+                    {{resume.file}}
+                    <a class="d-inline  btn btn-danger btn-sm " href="{{url_for('delete_resume',id=resume.id)}}"><i class="fas fa-trash">delete</i></a>
+                    <a class="d-inline  btn btn-success btn-sm" href="{{url_for('view_resume',id=resume.id)}}"><i class="fas fa-eye"> view</i></a>
+                </li>
+                {% endfor %}
+            </ul>
+            
+            {% endif %}
+            
+            
+        </div>
+        <div class="col-sm-6 col-lg-6 mx-auto mt-5">
+            {% include "notify.html" %}
+        </div>
+    </div>
+    
+    
+    
+</div>
+{% endblock %}
